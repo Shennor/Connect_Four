@@ -1,0 +1,38 @@
+# Project exclude paths
+/.gradle/
+/Connect Four/task/build/
+/Connect Four/task/out/
+/Connect Four/task/out/production/classes/
+/Connect Four/task/out/test/classes/
+/Topics/Mutable list/Initializing a list/out/
+/Topics/Mutable list/Initializing a list/out/production/classes/
+/Topics/Mutable list/Swap/out/
+/Topics/Mutable list/Swap/out/production/classes/
+/Topics/Mutable list/Theory/out/
+/Topics/Mutable list/Theory/out/production/classes/
+/Topics/Processing strings/Create an euphonious word/out/
+/Topics/Processing strings/Create an euphonious word/out/production/classes/
+/Topics/Processing strings/Lucky number/out/
+/Topics/Processing strings/Lucky number/out/production/classes/
+/Topics/Processing strings/Move the first N characters/out/
+/Topics/Processing strings/Move the first N characters/out/production/classes/
+/Topics/Processing strings/The longest word/out/
+/Topics/Processing strings/The longest word/out/production/classes/
+/Topics/Processing strings/Theory/out/
+/Topics/Processing strings/Theory/out/production/classes/
+/Topics/Work with MutableLists/Empty/out/
+/Topics/Work with MutableLists/Empty/out/production/classes/
+/Topics/Work with MutableLists/Guard On The Gate/out/
+/Topics/Work with MutableLists/Guard On The Gate/out/production/classes/
+/Topics/Work with MutableLists/Playing with numbers/out/
+/Topics/Work with MutableLists/Playing with numbers/out/production/classes/
+/Topics/Work with MutableLists/Theory/out/
+/Topics/Work with MutableLists/Theory/out/production/classes/
+
+.idea
+*.yaml
+gradlew
+gradlew.bat
+
+/**/out
+/**/build

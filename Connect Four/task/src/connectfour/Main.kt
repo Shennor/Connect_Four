@@ -7,13 +7,15 @@ enum class CellState(val symbol: Char){
     NONE(' ')
 }
 
+class Score(var first : Int = 0, var second : Int = 0)
+
 var numBoardColumns = 7 // [5-9]
 var numBoardRows = 6    // [5-9]
 var firstPlayerName : String = "Player 1"
 var secondPlayerName : String = "Player 2"
 var board = (emptyList<MutableList<CellState>>()).toMutableList()
 var numGames = 1
-var score = Pair(0, 0)
+var score = Score()
 
 var isFirstPlayerTurn = true
 
@@ -163,24 +165,21 @@ fun boardIsFull() : Boolean{
 
 fun found4(s : Char) : Boolean{
     var cnt = 0
+    fun found4InAxis(first : Int, second : Int) :Boolean {
+        for(i in 0 until first){
+            cnt = 0
+            for(j in 0 until second){
+                if(board[i][j].symbol == s) cnt++
+                else cnt = 0
+                if(cnt == 4) return true
+            }
+        }
+        return false
+    }
     // in columns
-    for(i in 0 until numBoardColumns){
-        cnt = 0
-        for(j in 0 until numBoardRows){
-            if(board[i][j].symbol == s) cnt++
-            else cnt = 0
-            if(cnt == 4) return true
-        }
-    }
+    if(found4InAxis(numBoardColumns, numBoardRows)) return true
     // in rows
-    for(j in 0 until numBoardRows){
-        cnt = 0
-        for(i in 0 until numBoardColumns){
-            if(board[i][j].symbol == s) cnt++
-            else cnt = 0
-            if(cnt == 4) return true
-        }
-    }
+    if(found4InAxis(numBoardRows, numBoardColumns)) return true
     // first type diagonally \
     for(i in 0 until numBoardColumns){
         var delta = 0
@@ -240,17 +239,18 @@ fun main() {
             when {
                 found4(CellState.FIRST.symbol) -> {
                     println("Player $firstPlayerName won")
-                    score = Pair(score.first + 2, score.second)
+                    score.first += 2
                     break
                 }
                 found4(CellState.SECOND.symbol) -> {
                     println("Player $secondPlayerName won")
-                    score = Pair(score.first, score.second + 2)
+                    score.second += 2
                     break
                 }
                 boardIsFull() -> {
                     println("It is a draw")
-                    score = Pair(score.first + 1, score.second + 1)
+                    score.first++
+                    score.second++
                     break
                 }
                 else -> {}
